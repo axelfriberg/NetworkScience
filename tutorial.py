@@ -101,7 +101,7 @@ avg_degr_centr(karateclub)
 #dispersion of graph
 print("dispersion between node 1 and 2: ", nx.dispersion(karateclub,1,2))
 
-#histogram of degree distribution (not done yet)
+#histogram of degree distribution
 degree_sequence=sorted(nx.degree(karateclub).values(),reverse=True)
 dmax = max(degree_sequence)
 plt.loglog(degree_sequence,'b-',marker='o')
@@ -110,8 +110,7 @@ plt.ylabel("degree")
 plt.xlabel("rank")
 Gcc = sorted(nx.connected_component_subgraphs(karateclub), key=len, reverse=True)[0]
 pos = nx.spring_layout(Gcc)
-plt.axis('off')
-nx.draw_networkx_nodes(Gcc, pos, node_size=20)
-nx.draw_networkx_edges(Gcc, pos, alpha=0.4)
+#nx.draw_networkx_nodes(Gcc, pos, node_size=20)
+#nx.draw_networkx_edges(Gcc, pos, alpha=0.4)
 
 plt.show()
