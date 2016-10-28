@@ -103,15 +103,15 @@ print("dispersion between node 1 and 2: ", nx.dispersion(karateclub,1,2))
 
 #histogram of degree distribution (not done yet)
 
-#degrees = karateclub.degree()
-#values = sorted(set(degrees.values()))
-#hist = []
+degrees = karateclub.degree()
+values = sorted(set(degrees.values()))
+hist = []
 
-#plt.figure()
-#plt.plot(degrees, hist, 'ro')
-#plt.legend(['Degree'])
-#plt.xlabel('Degree')
-#plt.ylabel('Number of nodes')
-#plt.title("Zachary's Karate Club")
-#plt.savefig('Degree_distribution_Karate_Club.pdf')
-#plt.show()
+plt.figure()
+plt.plot(degrees, hist, 'ro')
+plt.legend(['Degree'])
+plt.xlabel('Degree')
+plt.ylabel('Number of nodes')
+plt.title("Zachary's Karate Club")
+plt.savefig('Degree_distribution_Karate_Club.pdf')
+plt.show()
