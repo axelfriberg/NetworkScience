@@ -49,12 +49,55 @@ print("clustering coefficient node 1: ", nx.clustering(karateclub,1))
 print("average clustering coefficient", nx.average_clustering(karateclub))
 #Betweenness centrality
 print("betweenness centrality of node 1: ", nx.betweenness_centrality(karateclub)[1])
+def avg_betw_centr(graph):
+    i = 1
+    a = 0
+    N = int(graph.order())
+    while i < N+1:
+        a = a + float(nx.betweenness_centrality(graph)[i])
+        i = i + 1
+    avg = float(a)/float(graph.order())
+    print("average betweenness centrality: ", avg)
+avg_betw_centr(karateclub)
 #Closeness centrality
 print("closeness centrality of node 1: ", nx.closeness_centrality(karateclub, 1))
+def avg_close_centr(graph):
+    i = 1
+    a = 0
+    N = int(graph.order())
+    while i < N+1:
+        a = a + float(nx.closeness_centrality(graph)[i])
+        i = i + 1
+    avg = float(a)/float(graph.order())
+    print("average closeness centrality: ", avg)
+avg_close_centr(karateclub)
+
 #Eigenvector centrality
 print("eigenvector centrality of node 1: ", nx.eigenvector_centrality(karateclub)[1])
+def avg_eigenv_centr(graph):
+    i = 1
+    a = 0
+    N = int(graph.order())
+    while i < N+1:
+        a = a + float(nx.eigenvector_centrality(graph)[i])
+        i = i + 1
+    avg = float(a)/float(graph.order())
+    print("average eigenvector centrality: ", avg)
+avg_eigenv_centr(karateclub)
+
 #degree centrality
 print("degree centrality node of node 1: ", nx.degree_centrality(karateclub)[1])
+def avg_degr_centr(graph):
+    i = 1
+    a = 0
+    N = int(graph.order())
+    while i < N+1:
+        a = a + float(nx.degree_centrality(graph)[i])
+        i = i + 1
+    avg = float(a)/float(graph.order())
+    print("average degree centrality: ", avg)
+avg_degr_centr(karateclub)
+
 #dispersion of graph
 print("dispersion between node 1 and 2: ", nx.dispersion(karateclub,1,2))
 
