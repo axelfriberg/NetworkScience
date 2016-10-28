@@ -31,35 +31,36 @@ print(list(H.edges()))
 
 G.graph["Title"] = "Tutorial"
 
-mygraph = nx.read_gml("karate.gml")
+karateclub = nx.read_gml("karate.gml")
 
 #analyzing dataset
 
-print(nx.clustering(mygraph))
-print(nx.average_clustering(mygraph))
-#Betweenness centrality
-print(nx.betweenness_centrality(mygraph))
-#Closeness centrality
-print(nx.closeness_centrality(mygraph))
-#Eigenvector centrality
-print(nx.eigenvector_centrality(mygraph))
-#degree centrality
-print(nx.degree_centrality(mygraph))
-#dispersion of graph
-print(nx.dispersion(mygraph))
-
-
 # calculating average degree
 
-N,K = mygraph.order(), mygraph.size()
+N,K = karateclub.order(), karateclub.size()
+print("degree of node 1: ", karateclub.degree(1))
 avg_deg = float(K)/N
 print("Nodes: ", N)
 print("Edges: ", K)
 print("Average degree: ", avg_deg)
 
+#clustering coefficients
+print("clustering coefficient node 1: ", nx.clustering(karateclub,1))
+print("average clustering coefficient", nx.average_clustering(karateclub))
+#Betweenness centrality
+print("betweenness centrality of node 1: ", nx.betweenness_centrality(karateclub)[1])
+#Closeness centrality
+print("closeness centrality of node 1: ", nx.closeness_centrality(karateclub, 1))
+#Eigenvector centrality
+print("eigenvector centrality of node 1: ", nx.eigenvector_centrality(karateclub)[1])
+#degree centrality
+print("degree centrality node of node 1: ", nx.degree_centrality(karateclub)[1])
+#dispersion of graph
+print("dispersion between node 1 and 2: ", nx.dispersion(karateclub,1,2))
+
 #histogram of degree distribution (not done yet)
 
-#degrees = mygraph.degree()
+#degrees = karateclub.degree()
 #values = sorted(set(degrees.values()))
 #hist = []
 
