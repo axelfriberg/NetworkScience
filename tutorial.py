@@ -102,15 +102,32 @@ avg_degr_centr(karateclub)
 print("dispersion between node 1 and 2: ", nx.dispersion(karateclub,1,2))
 
 #histogram of degree distribution
-degree_sequence=sorted(nx.degree(karateclub).values(),reverse=True)
-dmax = max(degree_sequence)
-plt.loglog(degree_sequence,'b-',marker='o')
-plt.title("Degree rank plot")
-plt.ylabel("degree")
-plt.xlabel("rank")
-Gcc = sorted(nx.connected_component_subgraphs(karateclub), key=len, reverse=True)[0]
-pos = nx.spring_layout(Gcc)
+#degree_sequence=sorted(nx.degree(karateclub).values(),reverse=True)
+#dmax = max(degree_sequence)
+#plt.loglog(degree_sequence,'b-',marker='o')
+#plt.title("Degree rank plot")
+#plt.ylabel("degree")
+#plt.xlabel("rank")
+#Gcc = sorted(nx.connected_component_subgraphs(karateclub), key=len, reverse=True)[0]
+#pos = nx.spring_layout(Gcc)
 #nx.draw_networkx_nodes(Gcc, pos, node_size=20)
 #nx.draw_networkx_edges(Gcc, pos, alpha=0.4)
+
+def plot_degree_distribution():
+    degs={}
+    for n in karateclub.nodes():
+        deg = karateclub.degree(n)
+        if deg not in degs:
+            degs[deg] = 0
+        degs[deg] += 1
+    items = sorted(degs.items())
+
+items = sorted ( degs . items () )
+fig = plt . figure ()
+ax = fig . add_subplot (111)
+ax . plot ([ k for (k , v ) in items ] , [ v for (k ,
+v ) in items ])
+plt . title ( " Karate club Degree Distribution " )
+fig . savefig ( " degree_distribution . png " )
 
 plt.show()
