@@ -120,14 +120,19 @@ def plot_degree_distribution():
         if deg not in degs:
             degs[deg] = 0
         degs[deg] += 1
-    items = sorted(degs.items())
+    #items = sorted(degs.items())
 
-items = sorted ( degs . items () )
-fig = plt . figure ()
-ax = fig . add_subplot (111)
-ax . plot ([ k for (k , v ) in items ] , [ v for (k ,
-v ) in items ])
-plt . title ( " Karate club Degree Distribution " )
-fig . savefig ( " degree_distribution . png " )
+    fig = plt.figure()
+    ax = fig.add_subplot (111)
+    #ax.plot([k for (k, v ) in items ], [ v for (k , v ) in items ], 'k')
+    plt.bar(degs.keys(), degs.values())
 
-plt.show()
+
+    plt.title("Karate club Degree Distribution")
+    plt.xlabel("Degree")
+    plt.ylabel("Number of nodes")
+    fig.savefig ("degree_distribution.png" )
+
+    plt.show()
+
+plot_degree_distribution()
